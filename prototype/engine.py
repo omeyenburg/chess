@@ -1,5 +1,6 @@
 import pygame, sys, numpy, time
 from math import ceil
+import os
 
 board_size = 50*8  # has to be divisible by 8; 40*8
 board_size4 = int(board_size / 4)
@@ -46,7 +47,8 @@ gradient = pygame.transform.smoothscale(
     gradient, (int(board_size * 2), int(board_size * 2.5)))
 
 # extract piece from chess_pieces.png
-chess_pieces = pygame.image.load("chess_pieces.png")
+image_path = os.path.join(os.path.split(__file__)[0], "chess_pieces.png")
+chess_pieces = pygame.image.load(image_path)
 
 
 def load_piece(x, y):
